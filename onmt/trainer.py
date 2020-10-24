@@ -318,9 +318,10 @@ class Trainer(object):
                 for task_id in range(self.num_tasks):
                     valid_stats = gather_valid_stats(task_id, report=True)
                     if task_id == 0:
-                        if valid_stats.loss < best_valid_loss:
-                            best_valid_loss = valid_stats.loss
-                            self._maybe_save(step)
+                        self._maybe_save(step)
+                        # if valid_stats.loss < best_valid_loss:
+                        #     best_valid_loss = valid_stats.loss
+                        #     self._maybe_save(step)
 
             step += 1
             if step > train_steps:
