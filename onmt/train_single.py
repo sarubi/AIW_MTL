@@ -185,7 +185,7 @@ def main(opt, device_id):
         opt.train_steps = (num_batch * opt.epochs) + 1
         # Do the validation and save after each epoch
         opt.valid_steps = num_batch
-        opt.save_checkpoint_steps = 1
+        opt.save_checkpoint_steps = num_batch * (opt.epochs / 2 )
 
     # logger.info(opt_to_string(opt))
     logger.info(opt)
